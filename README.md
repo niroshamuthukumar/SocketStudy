@@ -52,6 +52,40 @@ File Transfer Protocol: Protocols like FTP (File Transfer Protocol) utilize sock
 Networked Games: Online multiplayer games rely on socket programming to facilitate communication between game clients and servers.
 RPC mechanisms: which allow processes to execute code on a remote server, often use socket programming for communication.
 
+## program:
+```
+server:
+ 
+import socket 
+s=socket.socket() 
+s.connect(('localhost',8000)) 
+print(s.getsockname()) 
+print(s.recv(1024).decode()) 
+s.send("acknowledgement recived from the server".encode())
+
+client:
+
+import socket
+from datetime import datetime
+ 
+s=socket.socket()
+ 
+s.bind(('localhost',8000))
+ 
+s.listen(5)
+c,addr=s.accept()
+print("Client Address : ",addr)
+ 
+now = datetime.now()
+ 
+c.send(now.strftime("%d/%m/%Y %H:%M:%S").encode())
+ack=c.recv(1024).decode()
+ 
+if ack:
+    print(ack)
+ 
+c.close()
+```
 ## output:
 ![study of socket](https://github.com/niroshamuthukumar/SocketStudy/assets/151830921/95edab77-c167-4c2f-9dc0-e84625a44e01)
 
