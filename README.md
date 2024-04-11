@@ -47,10 +47,15 @@ After establishing a connection, clients can send and receive data using send() 
 ## server:
  
 import socket 
+
 s=socket.socket() 
+
 s.connect(('localhost',8000)) 
+
 print(s.getsockname()) 
+
 print(s.recv(1024).decode()) 
+
 s.send("acknowledgement recived from the server".encode())
 
 ## client:
