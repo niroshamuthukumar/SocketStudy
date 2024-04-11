@@ -43,8 +43,8 @@ To perform a study on Socket Programming
 Clients create a socket using socket() and connect to a server using connect().
 After establishing a connection, clients can send and receive data using send() and recv().
 
-Programming:
-server:
+## Programming:
+## server:
  
 import socket 
 s=socket.socket() 
@@ -53,7 +53,7 @@ print(s.getsockname())
 print(s.recv(1024).decode()) 
 s.send("acknowledgement recived from the server".encode())
 
-client:
+## client:
 import socket
 from datetime import datetime
  
